@@ -1,0 +1,9 @@
+$reset-box: 0px;
+$default-font: 'Rubik', sans-serif;
+
+body 
+{
+  margin: $reset-box;
+  padding: $reset-box;
+  font-family: $default-font;
+}

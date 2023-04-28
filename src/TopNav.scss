@@ -1,0 +1,22 @@
+$primaryColor: #DB6900;
+
+.TopNavWrapper {
+    background-color: $primaryColor;
+    position: relative;
+    display: inline-block;
+    width: 100vw;
+    box-shadow: 0px 4px 4px gray;
+
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        margin: 15px;
+    }
+
+    svg {
+        position: absolute;
+        right: 25px;
+        top: 20px;
+        transform: scale(2.5);
+    }
+}
