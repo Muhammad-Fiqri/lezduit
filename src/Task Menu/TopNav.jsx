@@ -4,6 +4,8 @@ import './TopNav.scss';
 function TopNav() {
     const addIconClicked = () => {
       console.log("Add Task Clicked");
+      const AddTaskMenu = document.getElementsByClassName("AddTaskHoverWrapper")[0];
+      AddTaskMenu.style.display = "block";
     }
 
     return(
