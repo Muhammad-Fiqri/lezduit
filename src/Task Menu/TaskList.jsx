@@ -1,26 +1,24 @@
 import './TaskList.scss';
-import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import ToDo from './ToDo.jsx';
+import { useEffect } from 'react';
+import { useSelector } from "react-redux";
+
 
 function TaskList() {
+    const task = useSelector((state) => state.task.value);
+
+    useEffect(() => {
+        displayTask()
+    });
+
+    const displayTask = () => {
+        console.log("Task List: ",task);
+    }
+
     return(
         <>
             <div className="TaskListWrapper">
-                <div className="ToDo">
-                    <CircleRoundedIcon/>
-                    <p>To Do 1</p>
-                    <CheckRoundedIcon/>
-                </div>
-                <div className="ToDo">
-                    <CircleRoundedIcon/>
-                    <p>To Do 2</p>
-                    <CheckRoundedIcon/>
-                </div>
-                <div className="ToDo">
-                    <CircleRoundedIcon/>
-                    <p>To Do 3</p>
-                    <CheckRoundedIcon/>
-                </div>
+                {task.map((task_n) => <ToDo taskName={task_n.name} id={task_n.id} key={task_n.id}/>)}
             </div>
         </>
     );

@@ -1,11 +1,12 @@
 import AddIcon from '@mui/icons-material/Add';
+import $ from 'jquery';
 import './TopNav.scss';
 
 function TopNav() {
     const addIconClicked = () => {
       console.log("Add Task Clicked");
-      const AddTaskMenu = document.getElementsByClassName("AddTaskHoverWrapper")[0];
-      AddTaskMenu.style.display = "block";
+      const AddTaskMenu = $(".AddTaskHoverWrapper");
+      AddTaskMenu.show();
     }
 
     return(

@@ -1,5 +1,4 @@
 $primaryColor: #DB6900;
-$additionalColor: #00FF0A;
 
 .TaskListWrapper {
     background-color: $primaryColor;
@@ -10,27 +9,4 @@ $additionalColor: #00FF0A;
 
     border-radius: 10px;
     box-shadow: 0px 4px 4px gray;
-
-    .ToDo {
-        display: grid;
-        grid-template-columns: 2fr 6fr 2fr;
-
-        background-color: $additionalColor;
-        border-radius: 10px;
-        box-shadow: 0px 4px 4px black;
-
-        margin-bottom: 5%;
-
-        p {
-            text-align: left;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        svg {
-            transform: scale(1.5);
-            align-self: center;
-            justify-self: center;
-        }
-    }
 }
