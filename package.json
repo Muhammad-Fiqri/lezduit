@@ -2,15 +2,12 @@
   "name": "lezduit",
   "private": true,
   "version": "0.1.0",
-  "homepage": "https://muhammad-fiqri.github.io/lezduit",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
