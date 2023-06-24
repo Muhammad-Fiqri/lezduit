@@ -6,7 +6,7 @@ function TopNav() {
     const addIconClicked = () => {
       console.log("Add Task Clicked");
       const AddTaskMenu = $(".AddTaskHoverWrapper");
-      AddTaskMenu.show();
+      AddTaskMenu.css("display","grid");
     }
 
     return(

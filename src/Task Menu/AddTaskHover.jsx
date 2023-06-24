@@ -11,16 +11,17 @@ function AddTaskHover() {
     //store task name input
     const [task_name, set_task_name] = useState("");
 
+    //take task from redux storage
+    const task = useSelector((state) => state.task.value);
+
+    //use dispatch to change storeage
+    const dispatch = useDispatch();
+
     //debug purpose
     useEffect(() => {
         console.log("task_name : " + task_name);
         console.log("storage.task : "+task);
     });
-
-    //take task from redux storage
-    const task = useSelector((state) => state.task.value);
-    //use dispatch to change storeage
-    const dispatch = useDispatch();
 
     const closeTaskHover = () => {
         let HoverMenu = $(".AddTaskHoverWrapper");
@@ -32,9 +33,23 @@ function AddTaskHover() {
     const addTask = () => {
         let HoverMenu = $(".AddTaskHoverWrapper");
         console.log("Adding Task : "+task_name);
+        let same_name_error = false;
         
-        dispatch(AddTask(task_name));
-        HoverMenu.hide();
+        task.forEach((obj) => {
+            if (obj.name == task_name) {
+                $("#error").show();
+                $("#error").text("Error Can't Add Task With The Same Name")
+                $("#error").css("color","white");
+                $("#error").css("background-color","red");
+                same_name_error = true
+            }
+        });
+
+        if (!same_name_error) {
+            $("#error").hide();
+            dispatch(AddTask(task_name));
+            HoverMenu.hide();
+        }
     }
 
     return(
@@ -48,6 +63,7 @@ function AddTaskHover() {
                     Task Title
                 </label>
                 <input type="text" name="task-title" id="task-input" value={task_name} onChange={(e) => set_task_name(e.target.value)}/>
+                <p id="error"></p>
             </div>
             <div className="button-wrp">
                 <button id='add-task' onClick={addTask}>Add Task</button>
