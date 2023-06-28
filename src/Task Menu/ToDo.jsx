@@ -16,8 +16,8 @@ export default function ToDo(props) {
     return(
         <div className="ToDo-wrp">
             <CircleRoundedIcon/>
-            <p>id: {props.id}</p>
-            <p>task name: {props.taskName}</p>
+            <p>{props.id}</p>
+            <p>{props.taskName}</p>
             <CheckRoundedIcon onClick={killMe}/>
         </div>
     );
