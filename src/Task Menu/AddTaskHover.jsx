@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import $ from 'jquery';
 
 import CloseIcon from '@mui/icons-material/Close';
@@ -14,27 +14,26 @@ function AddTaskHover() {
     //take task from redux storage
     const task = useSelector((state) => state.task.value);
 
-    //use dispatch to change storeage
+    //use dispatch to access redux action
     const dispatch = useDispatch();
 
-    //debug purpose
-    useEffect(() => {
-        console.log("task_name : " + task_name);
-        console.log("storage.task : "+task);
-    });
-
+    //close hover menu when click x
     const closeTaskHover = () => {
         let HoverMenu = $(".AddTaskHoverWrapper");
         HoverMenu.hide();
-        console.log("close icon click");
+        // console.log("close icon click"); //debug purpose!!
     } 
 
     //save new task to the task array of redux storage and hide the hover menu
     const addTask = () => {
         let HoverMenu = $(".AddTaskHoverWrapper");
+
+        /* debug purpose!!!
         console.log("Adding Task : "+task_name);
+        */
+
+        // check if task has the same name in local storage
         let same_name_error = false;
-        
         task.forEach((obj) => {
             if (obj.name == task_name) {
                 $("#error").show();
@@ -45,6 +44,7 @@ function AddTaskHover() {
             }
         });
 
+        //if not same name, add task and hide
         if (!same_name_error) {
             $("#error").hide();
             dispatch(AddTask(task_name));
